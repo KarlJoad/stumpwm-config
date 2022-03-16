@@ -40,3 +40,4 @@
 (karljoad/load "keys")
 (karljoad/load "mouse")
 (karljoad/load "visual")
+(karljoad/load "slynk")
