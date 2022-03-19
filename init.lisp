@@ -41,3 +41,4 @@
 (karljoad/load "mouse")
 (karljoad/load "visual")
 (karljoad/load "slynk")
+(karljoad/load "commands")
