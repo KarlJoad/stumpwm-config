@@ -21,3 +21,5 @@
      (slynk:create-server :port (parse-integer port)
                           :dont-close t))
    :name "slynk-manual"))
+;; TODO: Find way to stop slynk server
+;; (slynk:stop-server port-number)
