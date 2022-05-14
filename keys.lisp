@@ -12,6 +12,8 @@
 ;; s - Super (Windows Key)
 ;; (set-prefix-key (kbd "C-M-
 
+(which-key-mode)
+
 (define-key *root-map* (kbd "c") "exec xfce4-terminal")
 (define-key *root-map* (kbd "C-c") "exec xfce4-terminal")
 (define-key *root-map* (kbd "z") "exec nyxt")
