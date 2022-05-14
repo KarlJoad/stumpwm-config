@@ -33,3 +33,6 @@
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer -q set Master 5%- unmute")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer -q set Master 5%+ unmute")
 
+
+;; Add a way to lock the screen.
+(define-key *top-map* (kbd "s-l") "exec xlock -mode blank")
