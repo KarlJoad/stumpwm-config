@@ -27,3 +27,9 @@
     m ; NOTE: Important to return to make final value of let-binding be keymap
     ))
 (define-key *root-map* (kbd "e") '*emacs-keybindings*)
+
+
+;; TODO: Give feedback after running command.
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer -q set Master 5%- unmute")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer -q set Master 5%+ unmute")
+
