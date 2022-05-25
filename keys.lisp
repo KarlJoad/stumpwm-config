@@ -12,6 +12,7 @@
 ;; s - Super (Windows Key)
 ;; (set-prefix-key (kbd "C-M-
 
+;; Show the keymap box as I go.
 (which-key-mode)
 
 (define-key *root-map* (kbd "c") "exec alacritty")
