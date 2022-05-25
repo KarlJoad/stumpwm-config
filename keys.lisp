@@ -16,6 +16,7 @@
 
 (define-key *root-map* (kbd "c") "exec alacritty")
 (define-key *root-map* (kbd "C-c") "exec alacritty")
+(define-key *root-map* (kbd "u") "exec urxvt")
 (define-key *root-map* (kbd "z") "exec nyxt")
 
 ;; My Personal Emacs keybindings
