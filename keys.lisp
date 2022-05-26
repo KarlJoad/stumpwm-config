@@ -30,7 +30,7 @@
     (define-key m (kbd "e") "exec emacsclient -s server -c")
     (define-key m (kbd "d") "exec emacsclient -s debug -c")
     (define-key m (kbd "m") "exec emacsclient -s server -c -e '(mu4e)'")
-    (define-key m (kbd "E") "exec emacs -c")
+    (define-key m (kbd "E") "exec emacs")
     m ; NOTE: Important to return to make final value of let-binding be keymap
     ))
 (define-key *root-map* (kbd "e") '*emacs-keybindings*)
