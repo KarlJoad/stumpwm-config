@@ -11,6 +11,7 @@
 ;; H - Hyper
 ;; s - Super (Windows Key)
 ;; (set-prefix-key (kbd "C-M-
+(set-prefix-key (kbd "C-z"))
 
 ;; Show the keymap box as I go.
 (which-key-mode)
