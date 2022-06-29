@@ -34,7 +34,12 @@ notification (which is in milliseconds) can be customized with the `timeout'
 argument, which defaults to 1000 milliseconds.
 
 `app-name', `hint', and `msg' MUST be a string and `timeout' must be an integer
-that can be understood by the `dunstify' command."
+that can be understood by the `dunstify' command.
+
+If two notifications arrive back-to-back with the same hint, the most recently
+received one will replace the earlier one, IMMEDIATELY. This is intended
+behavior because certain notifications, like volume control, expect that
+behavior."
   (assert (and (stringp app-name)
                (stringp hint)
                (stringp msg)
