@@ -39,13 +39,14 @@
 ;; Set up media control keys
 ;; From https://config.phundrak.com/stumpwm.html#Keybinds-Media-and-Media-Control-hbv5uk91z5j0
 (define-interactive-keymap audio-interactive nil
-  ((kbd "XF86AudioLowerVolume") "exec amixer -q set Master 5%- unmute")
-  ((kbd "XF86AudioRaiseVolume") "exec amixer -q set Master 5%+ unmute"))
+  ;; The raise/lower volume functions will ASK for the amount to raise/lower by.
+  ((kbd "XF86AudioLowerVolume") "karljoad/lower-volume")
+  ((kbd "XF86AudioRaiseVolume") "karljoad/raise-volume"))
   ;; ((kbd "XF86AudioMute") "exec amixer -q set Master 1+ toggle"))
 
 ;; TODO: Give feedback after running command.
-(define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer -q set Master 5%- unmute")
-(define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer -q set Master 5%+ unmute")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "karljoad/lower-volume 5")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "karljoad/raise-volume 5")
 
 ;; (defvar *media-keymap*
 ;;   (let ((m (make-sparse-keymap)))
