@@ -27,10 +27,17 @@
 
 
 ;;; Notifications
-(defun send-notification (summary msg)
-  "Send `msg' to the user through the dunst notification daemon.
+(defun send-notification (app-name hint msg &optional (timeout 1000))
+  "Send `msg' to the user through the dunst notification daemon from the
+application named `app-name' and a dunst hint of `hint'. The timeout for the
+notification (which is in milliseconds) can be customized with the `timeout'
+argument, which defaults to 1000 milliseconds.
 
-`msg' MUST be a string that can be understood by the `dunstify' command."
-  (assert (stringp msg))
+`app-name', `hint', and `msg' MUST be a string and `timeout' must be an integer
+that can be understood by the `dunstify' command."
+  (assert (and (stringp app-name)
+               (stringp hint)
+               (stringp msg)
+               (integerp timeout)))
   (run-shell-command
-   (format nil "dunstify -h ~a '~a'" summary msg)))
+   (format nil "dunstify -a '~a' -h ~a -t ~a '~a'" app-name hint timeout msg)))

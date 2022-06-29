@@ -15,8 +15,11 @@
 
 (defun karljoad/volume-notification (msg)
   "Send a notification to dunst with the volume tag."
-  (send-notification *karljoad/dunst-volume-summary*
-                     (format nil "Current Volume: ~a" msg)))
+  (send-notification
+   *karljoad/dunst-volume-app-name*
+   *karljoad/dunst-volume-hint*
+   (format nil "Current Volume: ~a" msg)
+   *karljoad/dunst-volume-timeout*))
 
 (defun karljoad/current-volume  ()
   "Get the current volume level, as reported by `amixer'."
