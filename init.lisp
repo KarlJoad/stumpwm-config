@@ -35,7 +35,7 @@
                                karljoad/init-directory)))
     (if (probe-file file)
         (load file)
-      (format *error-output* "StumpWM Config File '~a' does not exist." file))))
+        (format *error-output* "StumpWM Config File '~a' does not exist." file))))
 
 ;; Load my personal "standard library" of functions
 (karljoad/load "functions")
