@@ -37,6 +37,9 @@
         (load file)
       (format *error-output* "StumpWM Config File '~a' does not exist." file))))
 
+;; Load my personal "standard library" of functions
+(karljoad/load "functions")
+
 (karljoad/load "slynk")
 (karljoad/load "mouse")
 (karljoad/load "visual")
