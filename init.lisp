@@ -43,5 +43,6 @@
 (karljoad/load "slynk")
 (karljoad/load "mouse")
 (karljoad/load "visual")
+(karljoad/load "audio")
 (karljoad/load "commands")
 (karljoad/load "keys")
