@@ -4,8 +4,14 @@
 
 (in-package :stumpwm)
 
-(defparameter *karljoad/dunst-volume-summary* "string:x-dunst-stack-tag:volume"
-  "Dunst tag/summary to use for volume notifications.")
+(defparameter *karljoad/dunst-volume-app-name* "Volume"
+  "Dunst appname to use for for volume notifications.")
+
+(defparameter *karljoad/dunst-volume-hint* "string:x-dunst-stack-tag:volume"
+  "Dunst tag/hint to use for volume notifications.")
+
+(defparameter *karljoad/dunst-volume-timeout* 1000
+  "Amount of time dunst volume notification should live, in milliseconds.")
 
 (defun karljoad/volume-notification (msg)
   "Send a notification to dunst with the volume tag."
