@@ -4,22 +4,22 @@
 
 (in-package :stumpwm)
 
-(defparameter *karljoad/dunst-volume-app-name* "Volume"
+(defconstant +karljoad/dunst-volume-app-name+ "Volume"
   "Dunst appname to use for for volume notifications.")
 
-(defparameter *karljoad/dunst-volume-hint* "string:x-dunst-stack-tag:volume"
+(defconstant +karljoad/dunst-volume-hint+ "string:x-dunst-stack-tag:volume"
   "Dunst tag/hint to use for volume notifications.")
 
-(defparameter *karljoad/dunst-volume-timeout* 1000
+(defconstant +karljoad/dunst-volume-timeout+ 1000
   "Amount of time dunst volume notification should live, in milliseconds.")
 
 (defun karljoad/volume-notification (msg)
   "Send a notification to dunst with the volume tag."
   (send-notification
-   *karljoad/dunst-volume-app-name*
-   *karljoad/dunst-volume-hint*
+   +karljoad/dunst-volume-app-name+
+   +karljoad/dunst-volume-hint+
    (format nil "Current Volume: ~a" msg)
-   *karljoad/dunst-volume-timeout*))
+   +karljoad/dunst-volume-timeout+))
 
 (defun karljoad/current-volume  ()
   "Get the current volume level, as reported by `amixer'."
