@@ -56,3 +56,4 @@
 ;; Add a way to lock the screen.
 (define-key *top-map* (kbd "s-l") "exec xlock -mode blank")
 (define-key *top-map* (kbd "s-f") "exec firefox")
+(define-key *top-map* (kbd "s-e") "exec thunar")
