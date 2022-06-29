@@ -37,8 +37,8 @@
         (load file)
       (format *error-output* "StumpWM Config File '~a' does not exist." file))))
 
-(karljoad/load "keys")
+(karljoad/load "slynk")
 (karljoad/load "mouse")
 (karljoad/load "visual")
-(karljoad/load "slynk")
 (karljoad/load "commands")
+(karljoad/load "keys")
