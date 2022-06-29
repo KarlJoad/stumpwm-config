@@ -19,6 +19,7 @@
 ;; Add keybinds for floating group creation.
 (define-key *groups-map* (kbd "f") "gnew-float")
 (define-key *groups-map* (kbd "F") "gnewbg-float")
+(define-key *groups-map* (kbd "G") "gselect")
 
 (define-key *root-map* (kbd "c") "exec alacritty")
 (define-key *root-map* (kbd "C-c") "exec alacritty")
