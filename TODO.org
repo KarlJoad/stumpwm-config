@@ -1,0 +1,23 @@
+#+TITLE: Things To Do for StumpWM to become a Daily Driver
+#+AUTHOR: Karl Hallsby
+
+* Add ~contrib~ packages
+All the packages should be added to a StumpWM package that I define inside my Personal channel.
+Then, I further extend the ~stumpwm-with-slynk~ package with these contrib packages.
+
+Packages to add:
+  * battery-portable
+  * cpu
+  * disk
+  * hostname
+  * maildir
+  * mem
+  * net
+  * wifi
+  * stumptray? (Maybe)
+  * clipboard-history
+  * pass
+  * screenshot? (Maybe)
+  * stump-backlight (Only for laptop)
+  * stump-nm (Interface with NetworkManager)
+  * windowtags (This one is *not* super important)
