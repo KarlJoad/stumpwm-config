@@ -21,11 +21,6 @@
 (define-key *groups-map* (kbd "F") "gnewbg-float")
 (define-key *groups-map* (kbd "G") "gselect")
 
-(define-key *root-map* (kbd "c") "exec alacritty")
-(define-key *root-map* (kbd "C-c") "exec alacritty")
-(define-key *root-map* (kbd "u") "exec urxvt")
-(define-key *root-map* (kbd "z") "exec nyxt")
-
 ;; My Personal Emacs keybindings
 (defvar *emacs-keybindings*
   (let ((m (make-sparse-keymap)))
@@ -53,7 +48,14 @@
 ;;   (let ((m (make-sparse-keymap)))
 ;;     (define-key
 
+
+;;; Major keybindings to add to *top-map*, which is reached by pressing the prefix-key
 ;; Add a way to lock the screen.
 (define-key *top-map* (kbd "s-l") "exec xlock -mode blank")
 (define-key *top-map* (kbd "s-f") "exec firefox")
 (define-key *top-map* (kbd "s-e") "exec thunar")
+;; Terminal Emulators
+(define-key *root-map* (kbd "c") "exec alacritty")
+(define-key *root-map* (kbd "C-c") "exec alacritty")
+(define-key *root-map* (kbd "u") "exec urxvt")
+(define-key *root-map* (kbd "z") "exec nyxt")
