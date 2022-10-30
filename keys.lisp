@@ -32,6 +32,13 @@
     ))
 (define-key *root-map* (kbd "e") '*emacs-keybindings*)
 
+(defvar *window-keybindings*
+  (let ((m (make-sparse-keymap)))
+    (define-key m (kbd "n") "renumber")
+    m ; NOTE: Important to return to make final value of let-binding be keymap
+    ))
+(define-key *root-map* (kbd "w") '*window-keybindings*)
+
 ;; Set up media control keys
 ;; From https://config.phundrak.com/stumpwm.html#Keybinds-Media-and-Media-Control-hbv5uk91z5j0
 (define-interactive-keymap audio-interactive nil
