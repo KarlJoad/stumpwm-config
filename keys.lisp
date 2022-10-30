@@ -36,6 +36,7 @@
   (let ((m (make-sparse-keymap)))
     (define-key m (kbd "n") "renumber")
     (define-key m (kbd "p") "pull-window-by-number")
+    (define-key m (kbd "p") "repack-window-numbers")
     m ; NOTE: Important to return to make final value of let-binding be keymap
     ))
 (define-key *root-map* (kbd "w") '*window-keybindings*)
