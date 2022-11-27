@@ -17,9 +17,11 @@
 ;; Show the keymap box as I go.
 (which-key-mode)
 
-;; Add keybinds for floating group creation.
+ 
+;;; Add keybinds for floating group creation.
 (define-key *groups-map* (kbd "f") "gnew-float")
 (define-key *groups-map* (kbd "F") "gnewbg-float")
+;; Use G in *groups-map* to select the group to switch to, by substring
 (define-key *groups-map* (kbd "G") "gselect")
 
 ;; My Personal Emacs keybindings
@@ -59,11 +61,16 @@
 ;;     (define-key
 
 
-;;; Major keybindings to add to *top-map*, which is reached by pressing the prefix-key
+;;; Major keybindings to add to *top-map*, which is the map that *prefix-key*
+;;; gets you to. The keybindings below do not need to be led with the
+;;; *prefix-key* combination.
 ;; Add a way to lock the screen.
 (define-key *top-map* (kbd "s-l") "exec xlock -mode blank")
 (define-key *top-map* (kbd "s-f") "exec firefox")
 (define-key *top-map* (kbd "s-e") "exec thunar")
+
+
+;;; Keybindings added to *root-map*, which is reached by pressing *prefix-key*.
 ;; Terminal Emulators
 (define-key *root-map* (kbd "c") "exec alacritty")
 (define-key *root-map* (kbd "C-c") "exec alacritty")
