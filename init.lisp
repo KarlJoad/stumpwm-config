@@ -46,3 +46,10 @@
 (karljoad/load "audio")
 (karljoad/load "commands")
 (karljoad/load "keys")
+
+(defun karljoad/mode-line-all-heads ()
+  "Turn on StumpWM's mode-line on all heads (monitors)."
+  (dolist (h (screen-heads (current-screen)))
+    (enable-mode-line (current-screen) h t)))
+
+(karljoad/mode-line-all-heads)
