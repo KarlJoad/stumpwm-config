@@ -29,6 +29,11 @@ Returns true when yes is selected."
       (run-hook *quit-hook*)
       (run-shell-command "loginctl poweroff"))))
 
+;; Alias poweroff-computer to shutdown-computer
+;; Many systemd-based distros allow privileged users to halt the system using
+;; the privileged systemd target of poweroff, which I am used to.
+(defcommand poweroff-computer () () (shutdown-computer))
+
 (defcommand restart-computer () ()
   (let ((choice (yes-no-dialog "Really Reboot? (All programs will be closed)")))
     (when choice
