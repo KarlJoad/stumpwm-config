@@ -26,6 +26,16 @@
       str))
 
 
+;;; DBus stuff
+(defun dbus-send (print-reply? sys-or-sesh dest object method)
+  "Send a command over DBus to the specified DEST.
+
+`sys-or-sesh' is expected to be either the symbol `system' or `session'."
+  (run-shell-command
+   (format nil "dbus-send --print-reply ~a --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+           (concat "--" (string-downcase (symbol-name sys-or-sesh))))))
+
+
 ;;; Notifications
 (defun send-notification (app-name hint msg &optional (timeout 1000))
   "Send `msg' to the user through the dunst notification daemon from the
