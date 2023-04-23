@@ -36,6 +36,11 @@ well-known bus name.
 METHOD must be a fully-qualified method name!
 
 `sys-or-sesh' is expected to be one of either the symbol `system' or `session'."
+  (assert (and (booleanp print-reply?)
+               (symbolp sys-or-sesh)
+               (stringp dest)
+               (stringp object)
+               (stringp method)))
   (run-shell-command
    (format nil "dbus-send ~a ~a --dest=~a ~a ~a"
            (if print-reply? "--print-reply" "")
