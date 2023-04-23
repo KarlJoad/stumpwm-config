@@ -8,6 +8,10 @@
 ;;; Code:
 (in-package :stumpwm)
 
+(defun booleanp (object)
+  "Verify that OBJECT returns a boolean-typed value."
+  (typep object '(member t nil)))
+
 (defvar karljoad/display-number
   (multiple-value-bind (_ array)
       (cl-ppcre:scan-to-strings ":([0-9]+)" (getenv "DISPLAY"))
