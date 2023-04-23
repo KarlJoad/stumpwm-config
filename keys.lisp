@@ -49,12 +49,18 @@
 (define-interactive-keymap audio-interactive nil
   ;; The raise/lower volume functions will ASK for the amount to raise/lower by.
   ((kbd "XF86AudioLowerVolume") "karljoad/lower-volume")
-  ((kbd "XF86AudioRaiseVolume") "karljoad/raise-volume"))
+  ((kbd "XF86AudioRaiseVolume") "karljoad/raise-volume")
+  ((kbd "XF86AudioPlay") "karljoad/play-pause-song")
+  ((kbd "XF86AudioNext") "karljoad/next-song")
+  ((kbd "XF86AudioPrev") "karljoad/prev-song"))
   ;; ((kbd "XF86AudioMute") "exec amixer -q set Master 1+ toggle"))
 
 ;; TODO: Give feedback after running command.
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "karljoad/lower-volume 5")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "karljoad/raise-volume 5")
+(define-key *top-map* (kbd "XF86AudioPlay") "karljoad/play-pause-song")
+(define-key *top-map* (kbd "XF86AudioNext") "karljoad/next-song")
+(define-key *top-map* (kbd "XF86AudioPrev") "karljoad/prev-song")
 
 ;; (defvar *media-keymap*
 ;;   (let ((m (make-sparse-keymap)))
