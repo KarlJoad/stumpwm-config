@@ -54,3 +54,15 @@ You can see the full list of action methods at
 https://specifications.freedesktop.org/mpris-spec/latest/Player_Interface.html"
   (dbus-send 't 'session dest "/org/mpris/MediaPlayer2"
              (concat "org.mpris.MediaPlayer2.Player." action)))
+
+(defcommand karljoad/play-pause-song () ()
+  "Toggle the play/pause state of the currently playing track in Spotify."
+  (karljoad/control-song "org.mpris.MediaPlayer2.spotify" "PlayPause"))
+
+(defcommand karljoad/next-song () ()
+  "Move to the next track in Spotify."
+  (karljoad/control-song "org.mpris.MediaPlayer2.spotify" "Next"))
+
+(defcommand karljoad/prev-song () ()
+  "Move to the previous track in Spotify."
+  (karljoad/control-song "org.mpris.MediaPlayer2.spotify" "Previous"))
