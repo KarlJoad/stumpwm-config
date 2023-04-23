@@ -28,12 +28,21 @@
 
 ;;; DBus stuff
 (defun dbus-send (print-reply? sys-or-sesh dest object method)
-  "Send a command over DBus to the specified DEST.
+  "Send a command over DBus to the specified DEST calling the specified OBJECT's
+METHOD.
 
-`sys-or-sesh' is expected to be either the symbol `system' or `session'."
+DEST must be a fully-qualified dbus bus! It can be an anonymous bus name or a
+well-known bus name.
+METHOD must be a fully-qualified method name!
+
+`sys-or-sesh' is expected to be one of either the symbol `system' or `session'."
   (run-shell-command
-   (format nil "dbus-send --print-reply ~a --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-           (concat "--" (string-downcase (symbol-name sys-or-sesh))))))
+   (format nil "dbus-send ~a ~a --dest=~a ~a ~a"
+           (if print-reply? "--print-reply" "")
+           (concat "--" (string-downcase (symbol-name sys-or-sesh)))
+           dest
+           object
+           method)))
 
 
 ;;; Notifications
