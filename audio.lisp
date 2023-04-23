@@ -44,3 +44,13 @@ certain situations, such as presenting volume change feedback without delay.")
     (run-shell-command
      (concat "exec amixer -q set Master " (write-to-string amount) "%+ unmute"))
     (karljoad/volume-notification (karljoad/current-volume))))
+
+(defun karljoad/control-song (dest action)
+  "Send an MPRIS dbus message to the media player at DEST to perform ACTION.
+
+ACTION should be a playback control method name, such as PlayPause, Next,
+Previous, and others provided as a string.
+You can see the full list of action methods at
+https://specifications.freedesktop.org/mpris-spec/latest/Player_Interface.html"
+  (dbus-send 't 'session dest "/org/mpris/MediaPlayer2"
+             (concat "org.mpris.MediaPlayer2.Player." action)))
