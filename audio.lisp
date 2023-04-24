@@ -68,6 +68,12 @@ with a message containing VOLUME-LEVEL."
      (concat "exec amixer -q set Master " (write-to-string amount) "%+ unmute"))
     (karljoad/volume-notification (karljoad/current-volume))))
 
+(defcommand karljoad/mute () ()
+  "Mute the current output device."
+  (progn
+    (run-shell-command "exec amixer -q set Master 1+ off")
+    (karljoad/mute-notification (karljoad/is-muted?))))
+
 (defun karljoad/control-song (dest action)
   "Send an MPRIS dbus message to the media player at DEST to perform ACTION.
 
