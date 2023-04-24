@@ -81,6 +81,14 @@ with a message containing VOLUME-LEVEL."
     (karljoad/mute-notification (karljoad/is-muted?))
     (karljoad/volume-notification (karljoad/current-volume))))
 
+(defcommand karljoad/toggle-mute () ()
+  "Toggle to enable/disable muting the current output device."
+  (progn
+    (run-shell-command "exec amixer -q set Master 1+ toggle")
+    (karljoad/mute-notification (karljoad/is-muted?))
+    (unless (karljoad/is-muted?)
+      (karljoad/volume-notification (karljoad/current-volume)))))
+
 (defun karljoad/control-song (dest action)
   "Send an MPRIS dbus message to the media player at DEST to perform ACTION.
 
