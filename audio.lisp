@@ -33,6 +33,14 @@ with a message containing VOLUME-LEVEL."
    (format nil "Current Volume: ~a" volume-level)
    +karljoad/dunst-volume-timeout+))
 
+(defun karljoad/mute-notification (is-muted?)
+  "Send a notification to dunst with the mute tag."
+  (send-notification
+   +karljoad/dunst-volume-app-name+
+   +karljoad/dunst-mute-hint+
+   (format nil "~a" (string-capitalize (if is-muted? "Muted" "Unmuted")))
+   +karljoad/dunst-volume-timeout+))
+
 (defun karljoad/current-volume  ()
   "Get the current volume level, as reported by `amixer'."
   (strip-whitespace
