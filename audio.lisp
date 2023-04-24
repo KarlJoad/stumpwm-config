@@ -38,6 +38,13 @@ with a message containing VOLUME-LEVEL."
   (strip-whitespace
    (run-shell-command "amixer get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1" t)))
 
+(defun karljoad/is-muted? ()
+  "Return Boolean value representing if the current audio output if muted."
+  (string-equal
+   (strip-whitespace
+    (run-shell-command "amixer get Master | grep '%' | head -n 1 | cut -d '[' -f 3 | cut -d ']' -f 1" t))
+   "off"))
+
 (defcommand karljoad/lower-volume (amount)
     ((:number "Amount to lower volume (in %): "))
   "Lower the volume by `AMOUNT' amount and notify the user of the new current volume."
