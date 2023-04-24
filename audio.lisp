@@ -17,12 +17,13 @@ certain situations, such as presenting volume change feedback without delay.")
 (defconstant +karljoad/dunst-volume-timeout+ 1000
   "Amount of time dunst volume notification should live, in milliseconds.")
 
-(defun karljoad/volume-notification (msg)
-  "Send a notification to dunst with the volume tag."
+(defun karljoad/volume-notification (volume-level)
+  "Send a notification tagged with the `+karljoad/dunst-volume-hit+' tag to dunst
+with a message containing VOLUME-LEVEL."
   (send-notification
    +karljoad/dunst-volume-app-name+
    +karljoad/dunst-volume-hint+
-   (format nil "Current Volume: ~a" msg)
+   (format nil "Current Volume: ~a" volume-level)
    +karljoad/dunst-volume-timeout+))
 
 (defun karljoad/current-volume  ()
