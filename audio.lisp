@@ -14,6 +14,13 @@ Previous notifications that use the same tag/hint will automatically and
 immediately be replaced by the newer notification. This can be useful for in
 certain situations, such as presenting volume change feedback without delay.")
 
+(defconstant +karljoad/dunst-mute-hint+ "string:x-dunst-stack-tag:mute"
+  "Dunst tag/hint to use for mute notifications.
+
+Previous notifications that use the same tag/hint will automatically and
+immediately be replaced by the newer notification. This can be useful for in
+certain situations, such as presenting volume change feedback without delay.")
+
 (defconstant +karljoad/dunst-volume-timeout+ 1000
   "Amount of time dunst volume notification should live, in milliseconds.")
 
