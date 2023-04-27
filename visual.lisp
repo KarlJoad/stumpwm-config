@@ -53,6 +53,7 @@
 
 (update-colors-all-screens)
 
+
 ;;; Modeline information
 
 ;; Set the name for each window (which inhabit a frame in a group)
@@ -68,6 +69,16 @@
 ;; How often to update the modeline. Modeline is ALSO updated when a StumpWM
 ;; action occurs.
 (setf *mode-line-timeout* 2)
+
+;; Give the mode-line an xlib WM_CLASS property, so xprop understands the mode-line
+(add-hook *new-mode-line-hook*
+          (lambda (mode-line)
+            (xlib:set-wm-class (mode-line-window mode-line)
+                               "stumpwm-mode-line"
+                               "stumpwm-mode-line")))
+(xlib:set-wm-class (screen-message-window (current-screen))
+                   "stumpwm-message"
+                   "stumpwm-message")
 
 ;; Lastly, enable the modeline
 (toggle-mode-line (current-screen) (current-head))
