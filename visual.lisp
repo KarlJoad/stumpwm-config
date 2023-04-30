@@ -102,3 +102,10 @@ certain situations, such as presenting brightness change feedback without delay.
 (defconstant +karljoad/dunst-brightness-timeout+ 1000
   "Amount of time dunst brightness notification should live, in milliseconds.")
 
+(defun brightnessctl-cmd (op device)
+  "Submit a command to the `brightnessctl' program, to perform OP on DEVICE and
+collect its output, returning it as a string."
+  (assert (and (stringp op)
+               (stringp device)))
+  (run-shell-command
+   (format nil "brightnessctl ~a ~a" op device) t))
