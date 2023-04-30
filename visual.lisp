@@ -109,3 +109,10 @@ collect its output, returning it as a string."
                (stringp device)))
   (run-shell-command
    (format nil "brightnessctl ~a ~a" op device) t))
+
+(defun karljoad/current-brightness ()
+  "Get the current brightness of the screen, returned as an integer percentage."
+  (let ((cur-bright (parse-integer (brightnessctl-cmd "get" "intel_backlight")))
+        (max-bright (parse-integer (brightnessctl-cmd "max" "intel_backlight"))))
+    ;; Multiply by 100 to convert from decimal to percentage.
+    (round (* (/ cur-bright max-bright) 100))))
