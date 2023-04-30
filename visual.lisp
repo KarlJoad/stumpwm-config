@@ -85,3 +85,20 @@
 
 ;; TODO: Get battery information to work properly
 ;; (load-module "battery-portable")
+
+
+;;; Screen brightness controls.
+;;; This only makes sense on laptops
+(defconstant +karljoad/dunst-brightness-app-name+ "Brightness"
+  "Dunst appname to use for for brightness notifications.")
+
+(defconstant +karljoad/dunst-brightness-hint+ "string:x-dunst-stack-tag:brightness"
+  "Dunst tag/hint to use for brightness notifications.
+
+Previous notifications that use the same tag/hint will automatically and
+immediately be replaced by the newer notification. This can be useful for in
+certain situations, such as presenting brightness change feedback without delay.")
+
+(defconstant +karljoad/dunst-brightness-timeout+ 1000
+  "Amount of time dunst brightness notification should live, in milliseconds.")
+
