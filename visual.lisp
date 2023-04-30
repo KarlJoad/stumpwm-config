@@ -116,3 +116,12 @@ collect its output, returning it as a string."
         (max-bright (parse-integer (brightnessctl-cmd "max" "intel_backlight"))))
     ;; Multiply by 100 to convert from decimal to percentage.
     (round (* (/ cur-bright max-bright) 100))))
+
+(defun karljoad/brightness-notification (brightness-level)
+  "Send a notification tagged with the `+karljoad/dunst-brightness-hit+' tag to dunst
+with a message containing BRIGHTNESS-LEVEL."
+  (send-notification
+   +karljoad/dunst-brightness-app-name+
+   +karljoad/dunst-brightness-hint+
+   (format nil "Current Brightness: ~a" brightness-level)
+   +karljoad/dunst-brightness-timeout+))
