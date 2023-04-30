@@ -125,3 +125,17 @@ with a message containing BRIGHTNESS-LEVEL."
    +karljoad/dunst-brightness-hint+
    (format nil "Current Brightness: ~a" brightness-level)
    +karljoad/dunst-brightness-timeout+))
+
+(defcommand karljoad/lower-brightness (amount)
+    ((:number "Amount to lower brightness (in %): "))
+  "Lower the brightness by `AMOUNT' amount and notify the user of the new current brightness."
+  (progn
+    (brightnessctl-cmd (concat "set " (format nil "~a%-" amount)) "intel_backlight")
+    (karljoad/brightness-notification (karljoad/current-brightness))))
+
+(defcommand karljoad/raise-brightness (amount)
+    ((:number "Amount to raise brightness (in %): "))
+  "Raise the brightness by `AMOUNT' amount and notify the user of the new current brightness."
+  (progn
+    (brightnessctl-cmd (concat "set " (format nil "+~a%" amount)) "intel_backlight")
+    (karljoad/brightness-notification (karljoad/current-brightness))))
