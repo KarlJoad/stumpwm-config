@@ -55,6 +55,11 @@
   ((kbd "XF86AudioNext") "karljoad/next-song")
   ((kbd "XF86AudioPrev") "karljoad/prev-song"))
 
+;; Set up monitor brightness control keys
+(define-interactive-keymap brightness-interactive nil
+  ((kbd "XF86MonBrightnessDown") "karljoad/lower-brightness")
+  ((kbd "XF86MonBrightnessUp") "karljoad/raise-brightness"))
+
 ;; TODO: Give feedback after running command.
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "karljoad/lower-volume 5")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "karljoad/raise-volume 5")
@@ -62,6 +67,9 @@
 (define-key *top-map* (kbd "XF86AudioPlay") "karljoad/play-pause-song")
 (define-key *top-map* (kbd "XF86AudioNext") "karljoad/next-song")
 (define-key *top-map* (kbd "XF86AudioPrev") "karljoad/prev-song")
+
+(define-key *top-map* (kbd "XF86MonBrightnessDown") "karljoad/lower-brightness 5")
+(define-key *top-map* (kbd "XF86MonBrightnessUp") "karljoad/raise-brightness 5")
 
 ;; (defvar *media-keymap*
 ;;   (let ((m (make-sparse-keymap)))
