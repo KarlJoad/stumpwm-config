@@ -61,3 +61,8 @@ Returns true when yes is selected."
         (list "Restart" #'restart-computer))
   "The options available to quit a StumpWM session.
 Entries in the list have the format of (\"item in menu\" #'function-to-call)")
+
+
+;;; Browser
+(defcommand open-browser () ()
+  (run-or-raise "firefox" '(:class "Firefox")))
