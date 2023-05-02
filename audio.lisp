@@ -47,11 +47,11 @@ with a message containing VOLUME-LEVEL."
    (run-shell-command "amixer get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1" t)))
 
 (defun karljoad/is-muted? ()
-  "Return Boolean value representing if the current audio output if muted."
-  (string-equal
+  "Return `nil' if speakers are muted, or an integer (which is truthy) if the
+current audio output if muted."
+  (search "[off]"
    (strip-whitespace
-    (run-shell-command "amixer get Master | grep '%' | head -n 1 | cut -d '[' -f 3 | cut -d ']' -f 1" t))
-   "off"))
+    (run-shell-command "amixer get Master | grep '%' | head -n 1" t))))
 
 (defcommand karljoad/lower-volume (amount)
     ((:number "Amount to lower volume (in %): "))
