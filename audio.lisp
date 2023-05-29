@@ -48,7 +48,7 @@ with a message containing VOLUME-LEVEL."
 
 (defun karljoad/is-muted? ()
   "Return `nil' if speakers are muted, or an integer (which is truthy) if the
-current audio output if muted."
+current audio output is muted."
   (search "[off]"
    (strip-whitespace
     (run-shell-command "amixer get Master | grep '%' | head -n 1" t))))
