@@ -84,7 +84,7 @@ current audio output if muted."
 (defcommand karljoad/toggle-mute () ()
   "Toggle to enable/disable muting the current output device."
   (progn
-    (run-shell-command "exec amixer -q set Master 1+ toggle")
+    (run-shell-command "exec amixer -q set Master 1+ toggle" t)
     (karljoad/mute-notification (karljoad/is-muted?))
     (unless (karljoad/is-muted?)
       (karljoad/volume-notification (karljoad/current-volume)))))
