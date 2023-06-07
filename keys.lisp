@@ -49,14 +49,19 @@
 
 ;; Set up media control keys
 ;; From https://config.phundrak.com/stumpwm.html#Keybinds-Media-and-Media-Control-hbv5uk91z5j0
-(define-interactive-keymap audio-interactive nil
-  ;; The raise/lower volume functions will ASK for the amount to raise/lower by.
-  ((kbd "XF86AudioLowerVolume") "karljoad/lower-volume")
-  ((kbd "XF86AudioRaiseVolume") "karljoad/raise-volume")
-  ((kbd "XF86AudioMute") "karljoad/toggle-mute")
-  ((kbd "XF86AudioPlay") "karljoad/play-pause-song")
-  ((kbd "XF86AudioNext") "karljoad/next-song")
-  ((kbd "XF86AudioPrev") "karljoad/prev-song"))
+(defvar *audio-interactive*
+  (let ((m (make-sparse-keymap)))
+    (define-key m (kbd "l") "karljoad/lower-volume 5")
+    (define-key m (kbd "r") "karljoad/raise-volume 5")
+    ;; The raise/lower volume functions will ASK for the amount to raise/lower by.
+    (define-key m (kbd "L") "karljoad/lower-volume")
+    (define-key m (kbd "R") "karljoad/raise-volume")
+    (define-key m (kbd "m") "karljoad/toggle-mute")
+    (define-key m (kbd "SPC") "karljoad/play-pause-song")
+    (define-key m (kbd "n") "karljoad/next-song")
+    (define-key m (kbd "p") "karljoad/prev-song")
+    m))
+(define-key *root-map* (kbd "m") '*audio-interactive*)
 
 ;; Set up monitor brightness control keys
 (define-interactive-keymap brightness-interactive nil
