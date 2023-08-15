@@ -85,6 +85,10 @@
 ;;   (let ((m (make-sparse-keymap)))
 ;;     (define-key
 
+;; If we use *prefix-key* C-q, let the next keybinding be sent to the selected
+;; frame. This mirrors the kind of behavior Emacs has.
+(define-key *root-map* (kbd "C-q") "send-raw-key")
+
 
 ;;; Major keybindings to add to *top-map*, which is the map that *prefix-key*
 ;;; gets you to. The keybindings below do not need to be led with the
