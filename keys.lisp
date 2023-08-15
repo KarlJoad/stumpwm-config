@@ -44,6 +44,7 @@
     (define-key m (kbd "p") "pull-window-by-number")
     (define-key m (kbd "p") "repack-window-numbers")
     (define-key m (kbd "w") "windowlist")
+    (define-key m (kbd "o") "other-window")
     m ; NOTE: Important to return to make final value of let-binding be keymap
     ))
 (define-key *root-map* (kbd "w") '*window-keybindings*)
@@ -100,3 +101,4 @@
 (define-key *root-map* (kbd "C-c") "exec alacritty")
 (define-key *root-map* (kbd "u") "exec urxvt")
 (define-key *root-map* (kbd "z") "exec nyxt")
+(define-key *root-map* (kbd "C-o") "other-window")
