@@ -45,6 +45,10 @@
     (define-key m (kbd "p") "repack-window-numbers")
     (define-key m (kbd "w") "windowlist")
     (define-key m (kbd "o") "other-window")
+    (define-key m (kbd "h") "move-focus left")
+    (define-key m (kbd "j") "move-focus down")
+    (define-key m (kbd "k") "move-focus up")
+    (define-key m (kbd "l") "move-focus right")
     m ; NOTE: Important to return to make final value of let-binding be keymap
     ))
 (define-key *root-map* (kbd "w") '*window-keybindings*)
