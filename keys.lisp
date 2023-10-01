@@ -66,6 +66,7 @@
     (define-key m (kbd "SPC") "karljoad/play-pause-song")
     (define-key m (kbd "n") "karljoad/next-song")
     (define-key m (kbd "p") "karljoad/prev-song")
+    (define-key m (kbd "s") "exec spotify")
     m))
 (define-key *root-map* (kbd "m") '*audio-interactive*)
 
@@ -74,7 +75,6 @@
   ((kbd "XF86MonBrightnessDown") "karljoad/lower-brightness")
   ((kbd "XF86MonBrightnessUp") "karljoad/raise-brightness"))
 
-;; TODO: Give feedback after running command.
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "karljoad/lower-volume 5")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "karljoad/raise-volume 5")
 (define-key *top-map* (kbd "XF86AudioMute") "karljoad/toggle-mute")
