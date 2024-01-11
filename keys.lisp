@@ -100,7 +100,7 @@
 ;; Add a way to lock the screen.
 (define-key *top-map* (kbd "s-l") "exec xlock -mode blank")
 (define-key *top-map* (kbd "s-f") "open-browser")
-(define-key *top-map* (kbd "s-e") "exec thunar")
+(define-key *top-map* (kbd "s-e") "exec dolphin")
 
 
 ;;; Keybindings added to *root-map*, which is reached by pressing *prefix-key*.
