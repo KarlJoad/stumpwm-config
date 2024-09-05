@@ -44,6 +44,9 @@
 ;; Load my personal "standard library" of functions
 (karljoad/load "functions")
 
+;; If using dynamic groups, split in halfs, rather than 2/3 and 1/3.
+(setf *dynamic-group-master-split-ratio* 1/2)
+
 (karljoad/load "slynk")
 (karljoad/load "mouse")
 (karljoad/load "visual")
