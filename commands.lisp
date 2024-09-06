@@ -8,6 +8,31 @@
 
 ;;; Code:
 
+
+;;;
+;;; New StumpWM command types
+;;; You can use these in defcommand's interactive argument list to grab
+;;; arguments from the user and have them validated before passing them to your
+;;; defined function.
+;;;
+
+(defun parse-port (n)
+  (multiple-value-bind (num i) (parse-integer n)
+    (cond ((= i (length n))
+           (if (and (>= num 0)
+                    (<= num 65535))
+               num
+               (error 'parse-error)))
+          (t (error 'parse-error)))))
+
+(define-stumpwm-type :port-number (input prompt)
+  (when-let ((n (or (argument-pop input)
+                    (read-one-line (current-screen) prompt))))
+    (handler-case (parse-port n)
+      (parse-error (c)
+        (declare (ignore c))
+        (throw 'error "Ports must be integers in range 0-65535")))))
+
 (defun yes-no-dialog (query-string)
   "Presents a yes/no dialog to the user asking QUERY-STRING.
 Returns true when yes is selected."
