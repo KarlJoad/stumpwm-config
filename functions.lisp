@@ -13,17 +13,17 @@
 
 (in-package :stumpwm)
 
+(defparameter *whitespace-chars*
+  (list #\Space #\Newline #\Backspace #\Tab
+        #\Linefeed #\Page #\Return #\Rubout)
+  "List of characters commonly considered to be whitespace characters.")
+
 
 ;;; Generally useful functions
 (defun strip-whitespace (str)
   "String leading AND trailing whitespace from `str'."
   (assert (stringp str))
-  ;; TODO: Improve this to use a well-defined (by someone else) list of whitespace
-  ;; characters.
-  (string-trim
-      '(#\Space #\Newline #\Backspace #\Tab
-        #\Linefeed #\Page #\Return #\Rubout)
-      str))
+  (string-trim *whitespace-chars* str))
 
 
 ;;; DBus stuff
