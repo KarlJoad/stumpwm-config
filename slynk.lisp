@@ -15,10 +15,10 @@
 ;; (ql:quickload :slynk)
 
 ;; This only works if sbcl is the Common Lisp implementation in use
-(defcommand start-slynk (port) ((:string "Port number: "))
+(defcommand start-slynk (port) ((:port-number "Port number: "))
   (sb-thread:make-thread
    (lambda ()
-     (slynk:create-server :port (parse-integer port)
+     (slynk:create-server :port port
                           :dont-close t))
    :name "slynk-manual"))
 ;; TODO: Find way to stop slynk server
