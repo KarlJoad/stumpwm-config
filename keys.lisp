@@ -21,11 +21,14 @@
 ;;; Add keybinds for floating group creation.
 (define-key *groups-map* (kbd "f") "gnew-float")
 (define-key *groups-map* (kbd "F") "gnewbg-float")
+;;; Add keybinds for dynamic group creation.
+(define-key *groups-map* (kbd "d") "gnew-dynamic")
+(define-key *groups-map* (kbd "D") "gnewbg-dynamic")
+
 ;; Use g in *groups-map* to select the group to switch to, by substring
 (define-key *groups-map* (kbd "g") "gselect")
 ;; Use G in *groups-map* to list all the currently open groups
 (define-key *groups-map* (kbd "G") "groups")
-
 
 ;; My Personal Emacs keybindings
 (defvar *emacs-keybindings*
