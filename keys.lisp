@@ -113,3 +113,10 @@
 (define-key *root-map* (kbd "u") "exec urxvt")
 (define-key *root-map* (kbd "z") "exec nyxt")
 (define-key *root-map* (kbd "C-o") "other-window")
+
+;;; Window movement
+;; This will give us behavior similar to Alt-Tab in other desktop environments.
+;; In this case, the keybinding was taken from tmux's default bindings. The
+;; mnemonic to remember is "last-window", not "other-window", as *prefix-key*-o
+;; goes to the next Stump frame.
+(define-key *root-map* (kbd "l") "other-window")
