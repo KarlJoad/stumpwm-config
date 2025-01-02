@@ -85,7 +85,8 @@ Returns true when yes is selected."
         (list "Shutdown" #'shutdown-computer)
         (list "Restart" #'restart-computer))
   "The options available to quit a StumpWM session.
-Entries in the list have the format of (\"item in menu\" #'function-to-call)")
+Entries in the list have the format of
+(\"item in menu\" #'command/function-to-call)")
 
 
 ;;; Browser
