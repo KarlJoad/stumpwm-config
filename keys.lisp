@@ -30,7 +30,9 @@
 ;; Use G in *groups-map* to list all the currently open groups
 (define-key *groups-map* (kbd "G") "groups")
 
-;; My Personal Emacs keybindings
+
+;;; My Personal keybindings
+;; Emacs
 (defvar *emacs-keybindings*
   (let ((m (make-sparse-keymap)))
     (define-key m (kbd "e") "exec emacsclient -s server -c")
@@ -41,6 +43,7 @@
     ))
 (define-key *root-map* (kbd "e") '*emacs-keybindings*)
 
+;; Window repositioning keybindings
 (defvar *window-keybindings*
   (let ((m (make-sparse-keymap)))
     (define-key m (kbd "n") "renumber")
@@ -56,7 +59,7 @@
     ))
 (define-key *root-map* (kbd "w") '*window-keybindings*)
 
-;; Set up media control keys
+;; Media control keys
 ;; From https://config.phundrak.com/stumpwm.html#Keybinds-Media-and-Media-Control-hbv5uk91z5j0
 (defvar *audio-interactive*
   (let ((m (make-sparse-keymap)))
@@ -73,7 +76,7 @@
     m))
 (define-key *root-map* (kbd "m") '*audio-interactive*)
 
-;; Set up monitor brightness control keys
+;; Monitor brightness control keys
 (define-interactive-keymap brightness-interactive nil
   ((kbd "XF86MonBrightnessDown") "karljoad/lower-brightness")
   ((kbd "XF86MonBrightnessUp") "karljoad/raise-brightness"))
