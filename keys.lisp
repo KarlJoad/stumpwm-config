@@ -29,6 +29,9 @@
 (define-key *groups-map* (kbd "g") "gselect")
 ;; Use G in *groups-map* to list all the currently open groups
 (define-key *groups-map* (kbd "G") "groups")
+;; Use l in *groups-map* to switch to last-open group, the same way "l" works
+;; as an "Alt-Tab" for windows in the *root-map*.
+(define-key *groups-map* (kbd "l") "gother")
 
 
 ;;; My Personal keybindings
