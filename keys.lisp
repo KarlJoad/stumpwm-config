@@ -96,9 +96,6 @@
 (define-key *top-map* (kbd "XF86MonBrightnessDown") "karljoad/lower-brightness 5")
 (define-key *top-map* (kbd "XF86MonBrightnessUp") "karljoad/raise-brightness 5")
 
-;; (defvar *media-keymap*
-;;   (let ((m (make-sparse-keymap)))
-;;     (define-key
 
 ;; If we use *prefix-key* C-q, let the next keybinding be sent to the selected
 ;; frame. This mirrors the kind of behavior Emacs has.
