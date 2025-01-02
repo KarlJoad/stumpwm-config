@@ -43,6 +43,7 @@
 
 ;; Load my personal "standard library" of functions
 (karljoad/load "functions")
+(karljoad/load "macros")
 (karljoad/load "commands")
 
 ;; If using dynamic groups, split in halfs, rather than 2/3 and 1/3.
