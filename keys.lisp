@@ -96,6 +96,20 @@
 (define-key *top-map* (kbd "XF86MonBrightnessDown") "karljoad/lower-brightness 5")
 (define-key *top-map* (kbd "XF86MonBrightnessUp") "karljoad/raise-brightness 5")
 
+(search-all-run-or-raise slack "slack" "Slack"
+                         '(:class "Slack" :instance "slack"))
+(search-all-run-or-raise discord "Discord" "Discord"
+                         '(:class "discord" :instance "discord"))
+(search-all-run-or-raise telegram "telegram-desktop" "Telegram"
+                         '(:class "TelegramDesktop" :instance "telegram-desktop"))
+
+(defvar *messaging-keymap*
+  (let ((m (make-sparse-keymap)))
+    (define-key m (kbd "s") "slack")
+    (define-key m (kbd "d") "discord")
+    (define-key m (kbd "t") "telegram")
+    m))
+(define-key *root-map* (kbd "M") '*messaging-keymap*)
 
 ;; If we use *prefix-key* C-q, let the next keybinding be sent to the selected
 ;; frame. This mirrors the kind of behavior Emacs has.
