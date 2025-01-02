@@ -64,6 +64,8 @@
 
 ;; Media control keys
 ;; From https://config.phundrak.com/stumpwm.html#Keybinds-Media-and-Media-Control-hbv5uk91z5j0
+(search-all-run-or-raise spotify "spotify" "Spotify"
+                         '(:class "Spotify" :instance "spotify"))
 (defvar *audio-interactive*
   (let ((m (make-sparse-keymap)))
     (define-key m (kbd "l") "karljoad/lower-volume 5")
@@ -75,7 +77,7 @@
     (define-key m (kbd "SPC") "karljoad/play-pause-song")
     (define-key m (kbd "n") "karljoad/next-song")
     (define-key m (kbd "p") "karljoad/prev-song")
-    (define-key m (kbd "s") "exec spotify")
+    (define-key m (kbd "s") "spotify")
     m))
 (define-key *root-map* (kbd "m") '*audio-interactive*)
 
