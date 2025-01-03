@@ -124,6 +124,13 @@
   :key (kbd "t")
   :pullp nil)
 
+(defprogram-shortcut element
+  :command "element-desktop"
+  :props '(:class "Element" :instance "element")
+  :map *messaging-keymap*
+  :key (kbd "e")
+  :pullp nil)
+
 ;; If we use *prefix-key* C-q, let the next keybinding be sent to the selected
 ;; frame. This mirrors the kind of behavior Emacs has.
 (define-key *root-map* (kbd "C-q") "send-raw-key")
