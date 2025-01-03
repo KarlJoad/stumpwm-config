@@ -64,8 +64,6 @@
 
 ;; Media control keys
 ;; From https://config.phundrak.com/stumpwm.html#Keybinds-Media-and-Media-Control-hbv5uk91z5j0
-(search-all-run-or-raise spotify "spotify" "Spotify"
-                         '(:class "Spotify" :instance "spotify"))
 (defvar *audio-interactive*
   (let ((m (make-sparse-keymap)))
     (define-key m (kbd "l") "karljoad/lower-volume 5")
@@ -77,9 +75,15 @@
     (define-key m (kbd "SPC") "karljoad/play-pause-song")
     (define-key m (kbd "n") "karljoad/next-song")
     (define-key m (kbd "p") "karljoad/prev-song")
-    (define-key m (kbd "s") "spotify")
     m))
 (define-key *root-map* (kbd "m") '*audio-interactive*)
+
+(defprogram-shortcut spotify
+  :command "spotify"
+  :props '(:class "Spotify" :instance "spotify")
+  :map *audio-interactive*
+  :key (kbd "s")
+  :pullp nil)
 
 ;; Monitor brightness control keys
 (define-interactive-keymap brightness-interactive nil
@@ -96,20 +100,29 @@
 (define-key *top-map* (kbd "XF86MonBrightnessDown") "karljoad/lower-brightness 5")
 (define-key *top-map* (kbd "XF86MonBrightnessUp") "karljoad/raise-brightness 5")
 
-(search-all-run-or-raise slack "slack" "Slack"
-                         '(:class "Slack" :instance "slack"))
-(search-all-run-or-raise discord "Discord" "Discord"
-                         '(:class "discord" :instance "discord"))
-(search-all-run-or-raise telegram "telegram-desktop" "Telegram"
-                         '(:class "TelegramDesktop" :instance "telegram-desktop"))
-
-(defvar *messaging-keymap*
-  (let ((m (make-sparse-keymap)))
-    (define-key m (kbd "s") "slack")
-    (define-key m (kbd "d") "discord")
-    (define-key m (kbd "t") "telegram")
-    m))
+(defvar *messaging-keymap* (make-sparse-keymap))
 (define-key *root-map* (kbd "M") '*messaging-keymap*)
+
+(defprogram-shortcut slack
+  :command "slack"
+  :props '(:class "Slack" :instance "slack")
+  :map *messaging-keymap*
+  :key (kbd "s")
+  :pullp nil)
+
+(defprogram-shortcut discord
+  :command "Discord"
+  :props '(:class "discord" :instance "discord")
+  :map *messaging-keymap*
+  :key (kbd "d")
+  :pullp nil)
+
+(defprogram-shortcut telegram
+  :command "telegram-desktop"
+  :props '(:class "TelegramDesktop" :instance "telegram-desktop")
+  :map *messaging-keymap*
+  :key (kbd "t")
+  :pullp nil)
 
 ;; If we use *prefix-key* C-q, let the next keybinding be sent to the selected
 ;; frame. This mirrors the kind of behavior Emacs has.
