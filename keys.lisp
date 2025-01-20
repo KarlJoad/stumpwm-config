@@ -131,6 +131,13 @@
   :key (kbd "e")
   :pullp nil)
 
+(defprogram-shortcut zoom
+  :command "ZoomLauncher"
+  :props '(:class "zoom" :instance "zoom")
+  :map *messaging-keymap*
+  :key (kbd "z")
+  :pullp nil)
+
 ;; If we use *prefix-key* C-q, let the next keybinding be sent to the selected
 ;; frame. This mirrors the kind of behavior Emacs has.
 (define-key *root-map* (kbd "C-q") "send-raw-key")
