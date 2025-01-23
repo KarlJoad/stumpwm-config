@@ -66,3 +66,7 @@
 ;; SUPER key moves floating windows.
 (setf *mouse-focus-policy*    :click
       *float-window-modifier* :SUPER)
+
+;; Rename the "Default" group to "default" with lower-case to make typing
+;; faster.
+(grename "default")
