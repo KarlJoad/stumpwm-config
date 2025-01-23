@@ -61,3 +61,7 @@
     (enable-mode-line (current-screen) h t)))
 
 (karljoad/mode-line-all-heads)
+
+;; Transfer window focus from one window to another only on click.
+;; SUPER key moves floating windows.
+(setf *mouse-focus-policy*    :click)
