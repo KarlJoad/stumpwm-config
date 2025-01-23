@@ -64,4 +64,5 @@
 
 ;; Transfer window focus from one window to another only on click.
 ;; SUPER key moves floating windows.
-(setf *mouse-focus-policy*    :click)
+(setf *mouse-focus-policy*    :click
+      *float-window-modifier* :SUPER)
