@@ -18,6 +18,7 @@
 (which-key-mode)
 
  
+(define-key *groups-map* (kbd "C") "gnewbg")
 ;;; Add keybinds for floating group creation.
 (define-key *groups-map* (kbd "f") "gnew-float")
 (define-key *groups-map* (kbd "F") "gnewbg-float")
