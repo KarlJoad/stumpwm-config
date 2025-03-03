@@ -102,7 +102,7 @@
 (define-key *top-map* (kbd "XF86MonBrightnessUp") "karljoad/raise-brightness 5")
 
 (defvar *messaging-keymap* (make-sparse-keymap))
-(define-key *root-map* (kbd "M") '*messaging-keymap*)
+(define-key *root-map* (kbd "C-m") '*messaging-keymap*)
 
 (defprogram-shortcut slack
   :command "slack"
