@@ -136,6 +136,13 @@
   :command "ZoomLauncher"
   :props '(:class "zoom" :instance "zoom")
   :map *messaging-keymap*
+  :key (kbd "Z")
+  :pullp nil)
+
+(defprogram-shortcut zulip
+  :command "zulip"
+  :props '(:class "Zulip" :instance "zulip")
+  :map *messaging-keymap*
   :key (kbd "z")
   :pullp nil)
 
