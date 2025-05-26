@@ -51,6 +51,15 @@ Returns true when yes is selected."
       (delete-window i))
     (clear-window-marks group)))
 
+(defcommand (kill-marked tile-group) () ()
+  "Kill all marked windows in the current group and clear the marks.
+
+NOTE: Killing a window is the more aggressive option vs. deleting!"
+  (let ((group (current-group)))
+    (dolist (i (marked-windows group))
+      (kill-window i))
+    (clear-window-marks group)))
+
 ;; Shutdown the computer
 (defcommand shutdown-computer () ()
   (let ((choice (yes-no-dialog "Really Shutdown? (All programs will be closed)")))
