@@ -60,6 +60,22 @@ NOTE: Killing a window is the more aggressive option vs. deleting!"
       (kill-window i))
     (clear-window-marks group)))
 
+(defcommand do-marked-windows () ()
+  "Perform an action on all marked windows."
+  (let* ((choice (select-from-menu (current-screen)
+                                   `(("Delete" ,#'delete-marked)
+                                     ("Kill" ,#'kill-marked)
+                                     ("Pull" ,#'pull-marked))
+                                   "Do what with the marked windows?"))
+         (cmd (cadr choice))
+         (marked (marked-windows (current-group))))
+    (if (> (length marked) 0)
+        (funcall cmd)
+        (message "No marked windows. Doing nothing."))))
+
+;; TODO: Use select-from-batch-menu do create an ibuffer-like system for
+;; managing windows! See (stumpwm) Menus.
+
 ;; Shutdown the computer
 (defcommand shutdown-computer () ()
   (let ((choice (yes-no-dialog "Really Shutdown? (All programs will be closed)")))
