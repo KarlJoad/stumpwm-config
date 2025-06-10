@@ -64,7 +64,8 @@
 (setf *screen-mode-line-format* (list "[^B%n^b] %W^>%d"))
 
 ;; Set the time format to be displayed in the modeline
-(setf *time-modeline-string* "^B^2%a %b %e^n ^B^30%k:%M^n")
+;; Include the year in the modeline's printed datetime
+(setf *time-modeline-string* "^B^2%a %b %e %Y^n ^B^30%k:%M^n")
 
 ;; How often to update the modeline. Modeline is ALSO updated when a StumpWM
 ;; action occurs.
