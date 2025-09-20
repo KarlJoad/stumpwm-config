@@ -150,6 +150,21 @@
 ;; frame. This mirrors the kind of behavior Emacs has.
 (define-key *root-map* (kbd "C-q") "send-raw-key")
 
+;; Virtualization
+(defvar *virtualization-keymap* (make-sparse-keymap))
+
+;; Put the virtualization keymap on the more reachable lower-case v and rebind
+;; the version command (which is defaulted to "<prefix> v") to capital V.
+(define-key *root-map* (kbd "v") '*virtualization-keymap*)
+(define-key *root-map* (kbd "V") "version")
+
+(defprogram-shortcut virt-manager
+  :command "virt-manager"
+  :props '(:class ".virt-manager-real" :instance ".virt-manager.real")
+  :map *virtualization-keymap*
+  :key (kbd "m")
+  :pullp nil)
+
 
 ;;; Major keybindings to add to *top-map*, which is the map that *prefix-key*
 ;;; gets you to. The keybindings below do not need to be led with the
