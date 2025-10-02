@@ -55,6 +55,20 @@
 (karljoad/load "audio")
 (karljoad/load "keys")
 
+;;; Configure StumpWM itself
+
+;; Add WM_CLASS values to StumpWM pieces
+(xlib:set-wm-class (screen-message-window (current-screen))
+                   "stumpwm-message" "stumpwm-message")
+(xlib:set-wm-class (screen-input-window (current-screen))
+                   "stumpwm-input" "stumpwm-input")
+
+(add-hook *new-mode-line-hook*
+          (lambda (mode-line)
+            "Set WM_CLASS value for StumpWM's modeline"
+            (xlib:set-wm-class (mode-line-window modeline)
+                               "stumpwm-input" "stumpwm-input")))
+
 (defun karljoad/mode-line-all-heads ()
   "Turn on StumpWM's mode-line on all heads (monitors)."
   (dolist (h (screen-heads (current-screen)))
