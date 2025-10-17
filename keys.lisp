@@ -119,8 +119,8 @@
   :pullp nil)
 
 (defprogram-shortcut telegram
-  :command "telegram-desktop"
-  :props '(:class "TelegramDesktop" :instance "telegram-desktop")
+  :command "Telegram"
+  :props '(:class "TelegramDesktop" :instance "Telegram")
   :map *messaging-keymap*
   :key (kbd "t")
   :pullp nil)
